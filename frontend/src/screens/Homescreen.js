@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import Loader from "../components/Loader"
 import Message from '../components/Message';
-
+import SearchBar from '../components/SearchBar';
 import { getPrayerTimesByCity } from '../actions/PrayerTimesActions';
 
 
@@ -24,6 +24,7 @@ const HomeScreen = () => {
      
     return (
         <React.Fragment>
+            <SearchBar/>
             {loading ? <Loader/> : error && <Message>{error}</Message>}
             {success && (     
                 <Container>

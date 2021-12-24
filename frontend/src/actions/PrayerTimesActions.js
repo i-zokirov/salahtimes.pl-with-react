@@ -13,7 +13,6 @@ export const getPrayerTimesByCity = (city = "warsaw", country="poland") => {
             dispatch({type: PRAYER_TIMES_BY_CITY_REQUEST})
             const { data } = await axios.get(`/api/prayertimes?city=${city}&country=${country}`)
             dispatch({type: PRAYER_TIMES_BY_CITY_SUCCESS, payload: data})
-            console.log(data)
         } catch (error) {
             dispatch({
                 type: PRAYER_TIMES_BY_CITY_FAIL,
