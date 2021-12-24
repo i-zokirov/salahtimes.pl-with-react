@@ -9,12 +9,16 @@ export const prayerTimesByCityReducer = (state = {}, action) => {
         case PRAYER_TIMES_BY_CITY_REQUEST:
             return { loading: true }
         case PRAYER_TIMES_BY_CITY_SUCCESS:
+            console.log(action.payload)
             return {
                 loading: false,
                 timings: action.payload.data.timings,
                 date: action.payload.data.date,
                 meta: action.payload.data.meta,
-                success: true
+                city: action.payload.city,
+                country: action.payload.country,
+                success: true,
+                
             }
         case PRAYER_TIMES_BY_CITY_FAIL:
             return {

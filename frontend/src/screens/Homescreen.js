@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import { Table, Button, Row, Col } from 'react-bootstrap';
-import {LinkContainer} from "react-router-bootstrap";
+import { Table,  Container } from 'react-bootstrap';
+
 import { useSelector, useDispatch } from 'react-redux';
 
 import Loader from "../components/Loader"
@@ -13,17 +13,20 @@ const HomeScreen = () => {
 
     const dispatch = useDispatch()
     const prayerTimes = useSelector(state => state.prayerTimes)
-    const { loading, timings, error, date, meta, success } = prayerTimes
+    const { loading, timings, error, date, meta, success, city, country } = prayerTimes
 
     useEffect(() => {
         dispatch(getPrayerTimesByCity('katowice'))
     }, [dispatch])
+
+    const capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 
      
     return (
         <React.Fragment>
             {loading ? <Loader/> : error && <Message>{error}</Message>}
             {success && (     
+                <Container>
                 <Table striped bordered hover>
                     <thead>
                         <tr>
@@ -63,6 +66,15 @@ const HomeScreen = () => {
                         </tr>
                     </tbody>
             </Table>
+            <div className='text-center'>
+                <h3>{date.readable}</h3>
+                <h4>{date.hijri.day} {date.hijri.month.en} {date.hijri.year}</h4>
+                <hr/>
+                <h2>{capitalizeFirstLetter(city)}, {capitalizeFirstLetter(country)}</h2>
+                <p>Timezone: {meta.timezone}</p>
+            </div>
+            </Container>
+
         )} 
         </React.Fragment>
     )
