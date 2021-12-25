@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import { Table,  Container } from 'react-bootstrap';
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -15,9 +15,11 @@ const HomeScreen = () => {
     const prayerTimes = useSelector(state => state.prayerTimes)
     const { loading, timings, error, date, meta, success, city, country } = prayerTimes
 
+    const currentCity = useSelector(state => state.currentCity)
+    const {current_city} = currentCity
     useEffect(() => {
-        dispatch(getPrayerTimesByCity('katowice'))
-    }, [dispatch])
+        dispatch(getPrayerTimesByCity(current_city))
+    }, [dispatch, current_city])
 
     const capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 
