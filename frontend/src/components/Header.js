@@ -15,11 +15,11 @@ const Header = () => {
 
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav style={{marginLeft: "auto"}}>
-                            <LinkContainer to="/daily">
-                                <Nav.Link>Daily</Nav.Link>
+                            <LinkContainer to="/prayer_times">
+                                <Nav.Link>Prayer times</Nav.Link>
                             </LinkContainer>
-                            <LinkContainer to="/monthly">
-                                <Nav.Link>Monthly</Nav.Link>
+                            <LinkContainer to="/blog">
+                                <Nav.Link disabled>Blog</Nav.Link>
                             </LinkContainer>
                         </Nav>
                     </Navbar.Collapse>

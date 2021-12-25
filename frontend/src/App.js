@@ -14,7 +14,7 @@ const App = () => {
           <main className="py-4">
             <Container>
               <Route path='/' component={HomeScreen} exact />
-              <Route path='/daily' component={HomeScreen} exact />
+              <Route path='/prayer_times' component={HomeScreen} exact />
               
             </Container>
             <Footer/>
