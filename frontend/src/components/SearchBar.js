@@ -22,6 +22,7 @@ const SearchBar = () =>{
         
         if(selectedCity.name){
             dispatch({type: UPDATE_CURRENT_CITY, payload: selectedCity})
+            localStorage.setItem('currentCity', JSON.stringify(selectedCity))
             dispatch({type: CITY_SEARCH_RESET})
         }
     }, [inputText, dispatch, selectedCity])

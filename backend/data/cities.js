@@ -12,7 +12,7 @@ export const cities = [
         display_name: "Warsaw",
     },
     {
-        name: "gdansK",
+        name: "gdansk",
         display_name: "GdansK",
     },
     {

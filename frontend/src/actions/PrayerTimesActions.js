@@ -7,7 +7,7 @@ import {
 } from "../constants/prayerTimesConstants"
 
 
-export const getPrayerTimesByCity = (city = {name: 'warsaw', display_name: 'Warsaw'}, country="Poland") => {
+export const getPrayerTimesByCity = (city, country="Poland") => {
     return async (dispatch) => {
         try {
             dispatch({type: PRAYER_TIMES_BY_CITY_REQUEST})

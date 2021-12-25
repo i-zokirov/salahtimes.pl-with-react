@@ -20,12 +20,12 @@ export const searchCityReducer = (state = {cities: []}, action) => {
     }
 }
 
-export const updateCurrentCityReducer = (state = {current_city: {}}, action) => {
+export const updateCurrentCityReducer = (state = {}, action) => {
     switch(action.type){
         case UPDATE_CURRENT_CITY:
-            return {  current_city: action.payload }
+            return { ...action.payload }
         case UPDATE_CURRENT_CITY_RESET: 
-            return { current_city: {}}
+            return { }
         default: 
             return state
     }

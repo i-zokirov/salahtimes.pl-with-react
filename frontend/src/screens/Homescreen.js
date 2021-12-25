@@ -16,10 +16,10 @@ const HomeScreen = () => {
     const { loading, timings, error, date, meta, success, city, country } = prayerTimes
 
     const currentCity = useSelector(state => state.currentCity)
-    const {current_city} = currentCity
+    
     useEffect(() => {
-        dispatch(getPrayerTimesByCity(current_city))
-    }, [dispatch, current_city])
+        dispatch(getPrayerTimesByCity(currentCity))
+    }, [dispatch, currentCity])
 
     const capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 

@@ -11,7 +11,14 @@ const reducers = combineReducers({
     currentCity: updateCurrentCityReducer
 })
 
+const currentCityInLocalStorage = localStorage.getItem('currentCity') ? JSON.parse(localStorage.getItem('currentCity')) : {name: 'warsaw', display_name: 'Warsaw'}
 
-const store = createStore(reducers, composeWithDevTools(applyMiddleware(...middleware)))
+
+const initialState = {
+    currentCity: currentCityInLocalStorage
+}
+
+
+const store = createStore(reducers, initialState, composeWithDevTools(applyMiddleware(...middleware)))
 
 export default store
