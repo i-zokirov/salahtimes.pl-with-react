@@ -30,8 +30,23 @@ const SearchBar = () =>{
     const citySelectHandler = (city) =>{
         setSelectedCity(city)
         setShowDropDown(false)
+        setInputText("")
     }
- 
+    const sortCities = (cities) => {
+        return cities.sort(function(a, b) {
+            const nameA = a.display_name.toUpperCase(); // ignore upper and lowercase
+            const nameB = b.display_name.toUpperCase(); // ignore upper and lowercase
+            if (nameA < nameB) {
+              return -1;
+            }
+            if (nameA > nameB) {
+              return 1;
+            }
+          
+            // names must be equal
+            return 0;
+          })
+    }
     return (      
             <Container  className="mb-3">
                 
@@ -39,11 +54,11 @@ const SearchBar = () =>{
                     className="form-control"
                     placeholder="Type your city ..."
                     minLength={2}
-                    debounceTimeout={2000}
+                    debounceTimeout={400}
                     onChange={event => setInputText(event.target.value)} onClick={()=> setShowDropDown(true)}/>
                
                 <Dropdown.Menu show={showDropDown ? true : false}  >
-                    {!error && cities.map(city => (
+                    {!error && sortCities(cities).map(city => (
                         <Dropdown.Item key={city.name} onClick={() => citySelectHandler(city)}>
                             {city.display_name}
                         </Dropdown.Item>
