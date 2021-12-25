@@ -1,6 +1,5 @@
 import express from "express";
-import dotenv from "dotenv"
-import axios from "axios";
+import dotenv from "dotenv";
 import path from "path";
 import morgan from "morgan";
 import rfs from "rotating-file-stream";
