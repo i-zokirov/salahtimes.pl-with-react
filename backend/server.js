@@ -20,6 +20,7 @@ const accessLogStream = rfs.createStream('access.log', {
 // setup the logger
 app.use(morgan('combined', { stream: accessLogStream }))
  
+app.use(express.json())
   
 // routes
 app.use('/api/prayertimes', prayerTimesRoutes)
