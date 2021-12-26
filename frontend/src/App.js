@@ -11,7 +11,8 @@ const App = () => {
     return (
         <Router>
           <Header/>
-          <main className="py-4">
+          
+          <main style={{maxWidth: "850px"}} className="py-4 container-sm">
             <Container>
               <Route path='/' component={HomeScreen} exact />
               <Route path='/prayer_times' component={HomeScreen} exact />
