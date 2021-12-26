@@ -18,15 +18,3 @@ export const sendContactForm = async(req, res) => {
         console.log(error)
     }
 }
-    // const config = {
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     }
-    // }
-    // const data = {
-    //     service_id: 'contact_form_service',
-    //     template_id: 'contact_form',
-    //     user_id: 'user_Vs8FqkdKUI8bGyror2467',
-    //     template_params: emailTemplateParams,
-    //     accessToken: "d19facefe097acf51c8a0decd0e1f80b"
-    // };

@@ -30,6 +30,8 @@ app.use('/api/prayertimes', prayerTimesRoutes)
 app.use('/api/cities', cityRoutes)
 app.use('/api/contact', contactRoutes)
 
+app.get('/api/contact/emailjsId', (req, res) => res.json({userId: process.env.EMAILJSUSERID}))
+
 // serving static files in prod
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static(path.join(__dirname, '/frontend/build')))

@@ -3,12 +3,14 @@ import thunk from "redux-thunk";
 import {composeWithDevTools} from 'redux-devtools-extension';
 import { prayerTimesByCityReducer } from "./reducers/prayerTimesReducers";
 import { searchCityReducer, updateCurrentCityReducer } from "./reducers/cityReducers";
+import { contactRequestReducer } from "./reducers/contactReducer"
 const middleware = [thunk]
 
 const reducers = combineReducers({
     prayerTimes: prayerTimesByCityReducer,
     citySearchResults: searchCityReducer,
-    currentCity: updateCurrentCityReducer
+    currentCity: updateCurrentCityReducer,
+    contactRequest: contactRequestReducer,
 })
 
 const currentCityInLocalStorage = localStorage.getItem('currentCity') ? JSON.parse(localStorage.getItem('currentCity')) : {name: 'warsaw', display_name: 'Warsaw'}

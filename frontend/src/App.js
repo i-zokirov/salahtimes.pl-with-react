@@ -5,7 +5,7 @@ import { Container } from "react-bootstrap";
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomeScreen from './screens/Homescreen';
-
+import ContactScreen from './screens/ContactScreen';
 
 const App = () => {
     return (
@@ -15,10 +15,10 @@ const App = () => {
             <Container>
               <Route path='/' component={HomeScreen} exact />
               <Route path='/prayer_times' component={HomeScreen} exact />
-              
+              <Route path='/contact' component={ContactScreen} exact />     
             </Container>
-            <Footer/>
           </main>
+          <Footer/>
         </Router>
     )
 }
