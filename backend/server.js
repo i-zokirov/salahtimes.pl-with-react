@@ -3,8 +3,11 @@ import dotenv from "dotenv";
 import path from "path";
 import morgan from "morgan";
 import rfs from "rotating-file-stream";
+
+
 import prayerTimesRoutes from "./routes/prayerTimesRoutes.js"
 import cityRoutes from "./routes/cityRoutes.js"
+import contactRoutes from "./routes/emailRoutes.js"
 import {notFound, errorHandler} from "./middleware/errorHandlers.js"
 
 dotenv.config()
@@ -25,6 +28,7 @@ app.use(express.json())
 // routes
 app.use('/api/prayertimes', prayerTimesRoutes)
 app.use('/api/cities', cityRoutes)
+app.use('/api/contact', contactRoutes)
 
 // serving static files in prod
 if(process.env.NODE_ENV === 'production'){
